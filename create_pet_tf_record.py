@@ -92,7 +92,7 @@ def dict_to_tf_example(data,
   image = PIL.Image.open(encoded_jpg_io)
   if image.format != 'JPEG':
     raise ValueError('Image format not JPEG')
-  #key = hashlib.sha256(encoded_jpg).hexdigest()
+  key = hashlib.sha256(encoded_jpg).hexdigest()
 
   width = int(data['size']['width'])
   height = int(data['size']['height'])
@@ -160,6 +160,8 @@ def create_tf_record(output_filename,
     image_dir: Directory where image files are stored.
     examples: Examples to parse and save to tf record.
   """
+logging.info('%s label_map_dict %s annotations_dir %s image_dir',
+              label_map_dict ,annotations_dir,   image_dir)
   writer = tf.python_io.TFRecordWriter(output_filename)
   for idx, example in enumerate(examples):
     if idx % 100 == 0:
