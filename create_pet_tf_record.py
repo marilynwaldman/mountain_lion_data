@@ -64,7 +64,7 @@ def get_class_name_from_filename(file_name):
 def dict_to_tf_example(data,
                        label_map_dict,
                        image_subdirectory,
-                       ignore_difficult_instances=False):
+                       ignore_difficult_instances=True):
   """Convert XML derived dict to tf.Example proto.
 
   Notice that this function normalizes the bounding box coordinates provided
