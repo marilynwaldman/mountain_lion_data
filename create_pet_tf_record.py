@@ -160,9 +160,9 @@ def create_tf_record(output_filename,
     image_dir: Directory where image files are stored.
     examples: Examples to parse and save to tf record.
   """
-   logging.info('label_map_dict %s',label_map_dict)
-   logging.info(' annotations_dir %s', annotations_dir)
-   logging.info(' image_dir %s', image_dir)
+  logging.info('label_map_dict %s',label_map_dict)
+  logging.info(' annotations_dir %s', annotations_dir)
+  logging.info(' image_dir %s', image_dir)
   	
   writer = tf.python_io.TFRecordWriter(output_filename)
   for idx, example in enumerate(examples):
