@@ -12,6 +12,7 @@ path = path + "/images"
 files = os.listdir(path)
 
 for f in files:
-    file.write(f + " 1 1 1\n") 
+    filename, file_extension = os.path.splitext(f)	    
+    file.write(filename + " 1 1 1\n") 
     
 file.close()
