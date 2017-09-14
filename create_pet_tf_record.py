@@ -64,7 +64,7 @@ def get_class_name_from_filename(file_name):
 def dict_to_tf_example(data,
                        label_map_dict,
                        image_subdirectory,
-                       ignore_difficult_instances=True):
+                       ignore_difficult_instances=False):
   """Convert XML derived dict to tf.Example proto.
 
   Notice that this function normalizes the bounding box coordinates provided
@@ -110,13 +110,13 @@ def dict_to_tf_example(data,
   poses = []
   difficult_obj = []
   for obj in data['object']:
-    logging.info('nt(obj[difficult] %d',int(obj['difficult']) )	
-    difficult = bool(int(obj['difficult']))
+    	
+    #difficult = bool(int(obj['difficult']))
     
-    if ignore_difficult_instances and difficult:
+    #if ignore_difficult_instances and difficult:
       continue
 
-    difficult_obj.append(int(difficult))
+    #difficult_obj.append(int(difficult))
 
     xmin.append(float(obj['bndbox']['xmin']) / width)
     ymin.append(float(obj['bndbox']['ymin']) / height)
