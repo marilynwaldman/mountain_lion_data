@@ -1,0 +1,27 @@
+<annotation>
+    <folder>images</folder>
+    <filename>mountain_lion_150.jpg</filename>
+    <size>
+        <width>331</width>
+        <height>187</height>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>Mountain Lion</name>
+        <bndbox>
+            <xmin>6</xmin>
+            <ymin>2</ymin>
+            <xmax>262</xmax>
+            <ymax>181</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Mountain Lion</name>
+        <bndbox>
+            <xmin>83</xmin>
+            <ymin>2</ymin>
+            <xmax>278</xmax>
+            <ymax>137</ymax>
+        </bndbox>
+    </object>
+</annotation>
