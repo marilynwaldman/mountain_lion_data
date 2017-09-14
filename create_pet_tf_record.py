@@ -110,14 +110,6 @@ def dict_to_tf_example(data,
   poses = []
   difficult_obj = []
   for obj in data['object']:
-    	
-     #difficult = bool(int(obj['difficult']))
-    
-     #if ignore_difficult_instances and difficult:
-      continue
-
-     #difficult_obj.append(int(difficult))
-
      xmin.append(float(obj['bndbox']['xmin']) / width)
      ymin.append(float(obj['bndbox']['ymin']) / height)
      xmax.append(float(obj['bndbox']['xmax']) / width)
