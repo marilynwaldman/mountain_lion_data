@@ -85,6 +85,7 @@ def dict_to_tf_example(data,
   Raises:
     ValueError: if the image pointed to by data['filename'] is not a valid JPEG
   """
+  logging.info('data[filename] %s', data['filename'])
   img_path = os.path.join(image_subdirectory, data['filename'])
   with tf.gfile.GFile(img_path, 'rb') as fid:
     encoded_jpg = fid.read()
@@ -95,7 +96,9 @@ def dict_to_tf_example(data,
   key = hashlib.sha256(encoded_jpg).hexdigest()
 
   width = int(data['size']['width'])
+  logging.info('width %d', width)
   height = int(data['size']['height'])
+  logging.info('height %d', height)
 
   xmin = []
   ymin = []
@@ -108,6 +111,7 @@ def dict_to_tf_example(data,
   difficult_obj = []
   for obj in data['object']:
     difficult = bool(int(obj['difficult']))
+    print('difficlt ' + difficult)
     if ignore_difficult_instances and difficult:
       continue
 
@@ -178,6 +182,7 @@ def create_tf_record(output_filename,
       xml_str = fid.read()
     xml = etree.fromstring(xml_str)
     data = dataset_util.recursive_parse_xml_to_dict(xml)['annotation']
+    
 
     tf_example = dict_to_tf_example(data, label_map_dict, image_dir)
     writer.write(tf_example.SerializeToString())
