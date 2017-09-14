@@ -4,7 +4,7 @@ import os
 Renames the filenames within the same directory to "mountain_lion_num.jpg"
 """
 
-file = open('trainval.txt','w')
+file = open('annotations/trainval.txt','w')
 
 path =  os.getcwd()
 print(path)

@@ -1,3 +1,4 @@
+.DS_Store 1 1 1
 mountain_lion_1.jpg 1 1 1
 mountain_lion_10.jpg 1 1 1
 mountain_lion_100.jpg 1 1 1
