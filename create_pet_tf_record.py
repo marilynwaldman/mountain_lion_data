@@ -110,7 +110,7 @@ def dict_to_tf_example(data,
   poses = []
   difficult_obj = []
   for obj in data['object']:
-    logging.info('nt(obj[difficult] %d',int(obj['difficult'] )	
+    logging.info('nt(obj[difficult] %d',int(obj['difficult']) )	
     difficult = bool(int(obj['difficult']))
     
     if ignore_difficult_instances and difficult:
