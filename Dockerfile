@@ -28,7 +28,9 @@ RUN curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud
 RUN ./google-cloud-sdk/install.sh -q
 RUN ./google-cloud-sdk/bin/gcloud components install beta
 
+RUN git clone https://github.com/tensorflow/models.git
 ENV PATH="${PATH}:/root/google-cloud-sdk/bin"
+
 
 # TensorBoard
 EXPOSE 6006
@@ -37,5 +39,5 @@ EXPOSE 8888
 # Flask
 EXPOSE 5000
 
-CMD ["sh", "-c" , "/bin/bash"]
+CMD ["sh", "-c", "python download_git_repo.py ; /bin/bash"]
 
