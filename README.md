@@ -192,8 +192,23 @@ gcloud auth login
 ```shell
 gcloud beta auth application-default login
 ```
-(and follow the subsequent instructions)
+(and follow the subsequent instructions as in the [tutorial](https://cloud.google.com/blog/big-data/2017/06/training-an-object-detector-using-cloud-machine-learning-engine))
 
+## If you need to restart the container later
+
+If you wish to start a jupyter notebook, change directories appropriately then issue:
+
+```shell
+/run_jupyter.sh --allow-root
+```
+Once the workshop container is running again, you can exec back into it like this:
+
+```shell
+docker exec -it <container_id> bash
+```
+
+Note that you may need to define environment variables from step 9 when you reconnect.
+Note also that if you later start a separate new container 'from scratch', you will need to repeat the auth setup.
 
 ## If you need to restart the container later
 
