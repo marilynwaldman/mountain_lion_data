@@ -194,6 +194,22 @@ gcloud beta auth application-default login
 ```
 (and follow the subsequent instructions as in the [tutorial](https://cloud.google.com/blog/big-data/2017/06/training-an-object-detector-using-cloud-machine-learning-engine))
 
+## upload your images from this repo
+   
+    git clone https://github.com/marilynwaldman/mountain_lion_data.git
+
+##  replace the Download the Oxford-IIIT Pet Dataset, convert to TFRecords and upload to GCS step with 
+
+     python mountain_lion_data/create_pet_tf_record.py \
+        --label_map_path=mountain_lion_data/mountain_lion_label_map.pbtxt \
+        --data_dir=`pwd`/mountain_lion_data \
+        --output_dir=`pwd`
+
+
+     	gsutil cp pet_train.record ${YOUR_GCS_BUCKET}/data/pet_train.record
+	gsutil cp pet_val.record ${YOUR_GCS_BUCKET}/data/pet_val.record
+	gsutil cp mountain_lion_data/mountain_lion_label_map.pbtxt \
+	    ${YOUR_GCS_BUCKET}/data/pet_label_map.pbtxt
 ## If you need to restart the container later
 
 If you wish to start a jupyter notebook, change directories appropriately then issue:
