@@ -39,6 +39,7 @@ RUN pip install --upgrade --force-reinstall https://storage.googleapis.com/cloud
 
 RUN curl -sSL https://sdk.cloud.google.com | bash
 RUN git clone https://github.com/tensorflow/models.git
+
 ENV PATH="${PATH}:/root/google-cloud-sdk/bin"
 
 
