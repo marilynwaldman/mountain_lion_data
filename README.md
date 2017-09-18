@@ -212,6 +212,28 @@ gcloud beta auth application-default login
 	    ${YOUR_GCS_BUCKET}/data/pet_label_map.pbtxt
 ## If you need to restart the container later
 
+##### export the graph after the model is created and upload it to the cloud
+
+###### NOTE CHANGE OF PARAMETERS from the tutorial 
+
+     export CHECKPOINT_NUMBER="14214"
+ 
+     python object_detection/export_inference_graph.py \
+         --input_type image_tensor \
+         --pipeline_config_path object_detection/samples/configs/faster_rcnn_resnet101_pets.config \
+         --checkpoint_path model.ckpt-${CHECKPOINT_NUMBER} \
+         --inference_graph_path output_inference_graph.pb \
+         --trained_checkpoint_prefix model.ckpt-${CHECKPOINT_NUMBER}  \
+         --output_directory out
+
+
+         cd out
+
+	 gsutil cp frozen_inference_graph.pb \
+	      ${YOUR_GCS_BUCKET}/data/frozen_inference_graph.pb
+
+     
+
 If you wish to start a jupyter notebook, change directories appropriately then issue:
 
 ```shell
